@@ -1,0 +1,32 @@
+{
+  "name": "docmydb",
+  "version": "0.1.0",
+  "description": "Automatically generate documentation and diagrams for your database.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx src/cli/main.ts",
+    "build": "tsup src/cli/main.ts --format esm --out-dir dist",
+    "start": "node dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agustin22337/DocMyDB.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/agustin22337/DocMyDB/issues"
+  },
+  "homepage": "https://github.com/agustin22337/DocMyDB#readme",
+  "dependencies": {
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  }
+}
