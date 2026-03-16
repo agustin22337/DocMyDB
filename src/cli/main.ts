@@ -1,9 +1,9 @@
-import { analyzeComand } from "../commands/analyze";
+import { analyzeCommand } from "../commands/analyze";
 
 const command = process.argv[2];
 
 if (command === "analyze"){
-    analyzeComand();
+    analyzeCommand();
 } else {
     console.log("Unknown command");
 }
