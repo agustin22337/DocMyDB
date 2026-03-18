@@ -1,11 +1,8 @@
 import { PostgresConnector } from "../connectors/PostgresConnector";
 import { SchemaLoader } from "../introspector/schemaLoader";
-import { DocumentationService } from "../services/documentationService";
-import { DocType } from "../utils/docType";
-
-
+import { ConfigManager } from "../config/configManager";
 export async function analyzeCommand() {
-  const connectionString = "postgresql://sga:sga123@localhost:5432/sga_db";
+  const connectionString = ConfigManager.load().databaseUrl;
 
   const connector = new PostgresConnector(connectionString);
 
