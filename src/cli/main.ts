@@ -15,7 +15,7 @@ if (command === "analyze") {
     const url = args[0];
 
     if (!url) {
-        console.error("❌ Debes pasar una URL");
+        console.error("You must give an URL");
         process.exit(1);
     }
 

@@ -19,14 +19,16 @@ export class SchemaLoader {
     const tables = await this.loadTables();
 
     for (const table of tables) {
-      const columns = await this.loadColumns(table.name);
-      table.columns = columns;
+  const [columns, foreignKeys] = await Promise.all([
+    this.loadColumns(table.name),
+    this.loadForeignKeys(table.name),
+  ]);
 
-      const foreignKeys = await this.loadForeignKeys(table.name);
-      table.foreignKeys = foreignKeys;
+  table.columns = columns;
+  table.foreignKeys = foreignKeys;
 
-      schema.tables.push(table);
-    }
+  schema.tables.push(table);
+}
 
     return schema;
   }

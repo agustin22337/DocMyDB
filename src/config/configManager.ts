@@ -11,7 +11,7 @@ export class ConfigManager{
     static save(config: any){
         const dir = join(CONFIG_DIR, CONFIG_FILE);
         if (!existsSync(dir)){
-            mkdirSync(CONFIG_DIR);
+            mkdirSync(CONFIG_DIR, {recursive: true});
         }
         writeFileSync(this.getConfigPath(), JSON.stringify(config, null, 2));
     }
@@ -19,7 +19,7 @@ export class ConfigManager{
     static load(){
         const path = this.getConfigPath();
         if (!existsSync(path)){
-            throw new Error("No hay configuración. Ejecuta 'docmydb connect'");
+            throw new Error("No configuration found. Use docmydb connect'");
         }
         return JSON.parse(readFileSync(path, "utf-8"));
     }
